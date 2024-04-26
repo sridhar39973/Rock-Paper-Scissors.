@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f5ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin-top: 20px;
+    color: #333;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+form {
+    margin-top: 40px;
+}
+
+button {
+    font-size: 24px;
+    margin: 5px;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <% if(locals.cpuVal) { %>
+        <h1>CPU: <%= cpuVal %></h1>
+        <% } %>
+        <% if(locals.playerVal) { %>
+        <h1>Player: <%= playerVal %></h1>
+        <% } %>
+        <% if(locals.data) { %>
+        <h2><%= data %></h2>
+        <% } %>
+        <form action="/submit" method="post">
+            <button type="submit" value="rock" name="choice">Rock 🪨</button>
+            <button type="submit" value="paper" name="choice">Paper 📃</button>
+            <button type="submit" value="scissors" name="choice">Scissors ✂️</button>
+        </form>
+    </div>
+</body>
+</html>
